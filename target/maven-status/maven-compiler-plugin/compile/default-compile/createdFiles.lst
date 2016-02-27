@@ -1,0 +1,9 @@
+com\spamalot\sorts\BubbleSort.class
+com\spamalot\sorts\SortOperation.class
+com\spamalot\sorts\OperationCounter.class
+com\spamalot\sorts\SortOrder.class
+com\spamalot\sorts\InsertionSort.class
+com\spamalot\sorts\SortTest.class
+com\spamalot\sorts\HeapSort.class
+com\spamalot\sorts\Sorter.class
+com\spamalot\sorts\InsertionSort2.class
