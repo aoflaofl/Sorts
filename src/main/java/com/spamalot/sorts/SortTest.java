@@ -2,7 +2,6 @@ package com.spamalot.sorts;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * Contains main() method to test Sorting Classes.
@@ -44,8 +43,8 @@ public final class SortTest {
       maxval = Integer.parseInt(args[1]);
     }
 
-    list = makeListOfRndInts(count, maxval);
-    if (!isOrdered(list)) {
+    list = SortUtil.makeListOfRndInts(count, maxval);
+    if (!SortUtil.isOrdered(list)) {
       System.out.println("Not Sorted!");
     }
     List<Integer> listCopy = new ArrayList<>();
@@ -79,7 +78,7 @@ public final class SortTest {
     Sorter<Integer> heapSort = new HeapSort<>();
     heapSort.sort(list);
 
-    if (isOrdered(list)) {
+    if (SortUtil.isOrdered(list)) {
       System.out.println("Sorted!");
     }
 
@@ -90,58 +89,5 @@ public final class SortTest {
     }
 
     heapSort.report();
-  }
-
-  /**
-   * Generate a list of Random Integers.
-   * 
-   * @param count
-   *          Number of random Integers to generate.
-   * @param maxval
-   *          Maximum value of an integer.
-   * @return List of Integers.
-   */
-  private static List<Integer> makeListOfRndInts(final int count, final int maxval) {
-
-    Random rng = new java.util.Random();
-    List<Integer> list = new ArrayList<>();
-
-    for (int i = 0; i < count; i++) {
-      Integer vv = Integer.valueOf(rng.nextInt(maxval));
-      list.add(vv);
-      System.out.println(vv);
-    }
-
-    System.out.println("----");
-
-    return list;
-  }
-
-  /**
-   * Check if a list is ordered.
-   * 
-   * @param list
-   *          A list to check.
-   * @param <T>
-   *          A type that implements the Comparable interface.
-   * @return True if the list is ordered.
-   */
-  private static <T extends Comparable<T>> boolean isOrdered(final List<T> list) {
-
-    if (list.size() == 0 || list.size() == 1) {
-      return true;
-    }
-
-    T e1;
-    T e2 = list.get(0);
-
-    for (int i = 1; i < list.size(); i++) {
-      e1 = e2;
-      e2 = list.get(i);
-      if (e1.compareTo(e2) > 0) {
-        return false;
-      }
-    }
-    return true;
   }
 }

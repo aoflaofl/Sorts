@@ -12,6 +12,9 @@ import java.util.List;
  * <p>
  * Modified to allow 0 as starting index and allow sorting an index range.
  * 
+ * <p>
+ * Analysis: Blah... blah...
+ * 
  * @author gej
  * @param <T>
  *          A type that implements the Comparable interface.
