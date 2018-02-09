@@ -18,4 +18,8 @@ hs_err_pid*
 .project
 .settings/
 
+# Plug-in configuration files
+.eclipse-pmd
+
 /bin/
+/doc/

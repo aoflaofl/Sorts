@@ -32,7 +32,12 @@ public final class SortTest {
    *          Arguments to the program.
    */
   public static void main(final String[] args) {
-    List<Integer> list;
+
+    List<Sorter<Integer>> sorts = new ArrayList<>();
+    sorts.add(new BubbleSort<Integer>());
+    sorts.add(new InsertionSort<>());
+    sorts.add(new InsertionSort2<>());
+    sorts.add(new HeapSort<>());
 
     int count = DEFAULT_COUNT;
     if (args.length > 0 && args[0] != null) {
@@ -43,51 +48,30 @@ public final class SortTest {
       maxval = Integer.parseInt(args[1]);
     }
 
-    list = SortUtil.makeListOfRndInts(count, maxval);
+    List<Integer> list = SortUtil.makeListOfRndInts(count, maxval);
+
     if (!SortUtil.isOrdered(list)) {
       System.out.println("Not Sorted!");
     }
+
+    for (Sorter<Integer> s : sorts) {
+      doASort(s, list);
+    }
+  }
+
+  /**
+   * Sort and report a List using an algorithm.
+   * 
+   * @param sortAlgorithm
+   *          The Sorting algorithm to use
+   * @param list
+   *          List to be sorted
+   */
+  static void doASort(Sorter<Integer> sortAlgorithm, List<Integer> list) {
     List<Integer> listCopy = new ArrayList<>();
     listCopy.addAll(list);
 
-    Sorter<Integer> insertionSort = new InsertionSort<>();
-    insertionSort.sort(list);
-
-    for (int k = 0; k < list.size(); k++) {
-      System.out.println(list.get(k));
-    }
-
-    insertionSort.report();
-
-    list.clear();
-    list.addAll(listCopy);
-
-    Sorter<Integer> i2 = new InsertionSort2<>();
-    i2.sort(list);
-    i2.report();
-
-    list.clear();
-    list.addAll(listCopy);
-
-    Sorter<Integer> bubbleSort = new BubbleSort<>();
-    bubbleSort.sort(list);
-    bubbleSort.report();
-
-    list.clear();
-    list.addAll(listCopy);
-    Sorter<Integer> heapSort = new HeapSort<>();
-    heapSort.sort(list);
-
-    if (SortUtil.isOrdered(list)) {
-      System.out.println("Sorted!");
-    }
-
-    for (int k = 0; k < list.size(); k++) {
-      System.out.print(k);
-      System.out.print(": ");
-      System.out.println(list.get(k));
-    }
-
-    heapSort.report();
+    sortAlgorithm.sort(listCopy);
+    sortAlgorithm.report();
   }
 }

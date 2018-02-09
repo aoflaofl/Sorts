@@ -56,16 +56,15 @@ abstract class Sorter<T extends Comparable<T>> {
    * 
    * @param list
    *          The list.
-   * @param ii
+   * @param i
    *          target index.
-   * @param jj
+   * @param j
    *          source index.
    */
-  protected final void move(final List<T> list, final int ii, final int jj) {
-
+  protected final void move(final List<T> list, final int i, final int j) {
     this.opCounter.count(SortOperation.MOVE);
 
-    list.set(ii, list.get(jj));
+    list.set(i, list.get(j));
   }
 
   /**

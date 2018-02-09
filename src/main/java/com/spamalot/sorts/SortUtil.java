@@ -10,7 +10,7 @@ import java.util.Random;
  * @author gej
  *
  */
-public final class SortUtil {
+final class SortUtil {
   /**
    * Nothing to declare.
    */
@@ -55,18 +55,18 @@ public final class SortUtil {
    * @return List of Integers in random order.
    */
   static List<Integer> makeListOfRndInts(final int count, final int maxval) {
-  
+
     Random rng = new java.util.Random();
     List<Integer> list = new ArrayList<>();
-  
+
     for (int i = 0; i < count; i++) {
       Integer vv = Integer.valueOf(rng.nextInt(maxval));
       list.add(vv);
-      System.out.println(vv);
+      // System.out.println(vv);
     }
-  
+
     System.out.println("----");
-  
+
     return list;
   }
 
