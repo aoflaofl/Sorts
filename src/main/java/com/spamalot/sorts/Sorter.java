@@ -18,6 +18,8 @@ abstract class Sorter<T extends Comparable<T>> {
   private final OperationCounter opCounter = new OperationCounter();
 
   /**
+   * Base Constructor.
+   * 
    * @param name
    *          Name of this sort algorithm.
    */
@@ -36,6 +38,8 @@ abstract class Sorter<T extends Comparable<T>> {
   private SortOrder order = SortOrder.ASCENDING;
 
   /**
+   * Get name of this Sort.
+   * 
    * @return The name of this sort.
    */
   public final String getName() {
@@ -89,8 +93,7 @@ abstract class Sorter<T extends Comparable<T>> {
   }
 
   /**
-   * Sort the List handed in. Sort should happen in place so nothing is
-   * returned.
+   * Sort the List handed in. Sort should happen in place so nothing is returned.
    * 
    * @param list
    *          The list to be sorted.
@@ -131,8 +134,7 @@ abstract class Sorter<T extends Comparable<T>> {
   /**
    * Compare the two arguments passed in.
    * 
-   * <p>
-   * Counts the number of compares done which can be retrieved from a function.
+   * <p>Counts the number of compares done which can be retrieved from a function.
    * 
    * 
    * @param xx

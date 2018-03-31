@@ -22,12 +22,14 @@ public final class SortTest {
    */
   private static final int DEFAULT_COUNT = 10;
   /**
-   * The maximum random number to generate if nothing is specified on the
-   * command line.
+   * The maximum random number to generate if nothing is specified on the command
+   * line.
    */
   private static final int DEFAULT_MAX_VAL = 100;
 
   /**
+   * Start here.
+   * 
    * @param args
    *          Arguments to the program.
    */

@@ -49,6 +49,8 @@ enum SortOperation {
   }
 
   /**
+   * Construct SortOperation object.
+   * 
    * @param description
    *          How this operation will be listed in the report.
    */

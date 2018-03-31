@@ -5,11 +5,9 @@ import java.util.List;
 /**
  * Implementation of a Heap Sort.
  *
- * <p>
- * Algorithm adapted from ....
+ * <p>Algorithm adapted from ....
  * 
- * <p>
- * Modified to allow 0 as starting index and allow sorting an index range.
+ * <p>Modified to allow 0 as starting index and allow sorting an index range.
  * 
  * @author gej
  * @param <T>
@@ -64,6 +62,8 @@ final class HeapSort<T extends Comparable<T>> extends Sorter<T> {
   }
 
   /**
+   * Perform max heapify function.
+   * 
    * @param list
    *          The list to be heaped.
    * @param start
