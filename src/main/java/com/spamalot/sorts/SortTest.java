@@ -20,12 +20,12 @@ public final class SortTest {
   /**
    * The number of elements if nothing is specified on the command line.
    */
-  private static final int DEFAULT_COUNT = 10;
+  private static final int DEFAULT_COUNT = 14;
   /**
    * The maximum random number to generate if nothing is specified on the command
    * line.
    */
-  private static final int DEFAULT_MAX_VAL = 100;
+  private static final int DEFAULT_MAX_VAL = 10000;
 
   /**
    * Start here.
@@ -84,12 +84,16 @@ public final class SortTest {
       System.out.println("Sorted!");
     }
 
-    for (int k = 0; k < list.size(); k++) {
-      System.out.print(k);
-      System.out.print(": ");
-      System.out.println(list.get(k));
-    }
+    // for (int k = 0; k < list.size(); k++) {
+    // System.out.print(k);
+    // System.out.print(": ");
+    // System.out.println(list.get(k));
+    // }
 
     heapSort.report();
+
+    Sorter<Integer> heapSort2 = new HeapSort<>();
+    heapSort2.sort(list);
+    heapSort2.report();
   }
 }

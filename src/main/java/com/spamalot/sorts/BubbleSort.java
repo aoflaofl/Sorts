@@ -17,7 +17,7 @@ import java.util.List;
  *          A type that implements the Comparable interface.
  */
 
-public final class BubbleSort<T extends Comparable<T>> extends Sorter<T> {
+final class BubbleSort<T extends Comparable<T>> extends Sorter<T> {
 
   /**
    * Constructor for BubbleSort.

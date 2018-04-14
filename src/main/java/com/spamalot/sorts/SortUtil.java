@@ -3,6 +3,7 @@ package com.spamalot.sorts;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Utility functions for Sorting.
@@ -10,7 +11,7 @@ import java.util.Random;
  * @author gej
  *
  */
-public final class SortUtil {
+final class SortUtil {
   /**
    * Nothing to declare.
    */
@@ -60,7 +61,7 @@ public final class SortUtil {
     List<Integer> list = new ArrayList<>();
   
     for (int i = 0; i < count; i++) {
-      Integer vv = Integer.valueOf(rng.nextInt(maxval));
+      Integer vv = Integer.valueOf(ThreadLocalRandom.current().nextInt(maxval));
       list.add(vv);
       System.out.println(vv);
     }
