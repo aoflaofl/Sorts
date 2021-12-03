@@ -34,7 +34,7 @@ public final class SortTest {
   public static void main(final String[] args) {
 
     List<Sorter<Integer>> sorts = new ArrayList<>();
-    sorts.add(new BubbleSort<Integer>());
+    sorts.add(new BubbleSort<>());
     sorts.add(new InsertionSort<>());
     sorts.add(new InsertionSort2<>());
     sorts.add(new HeapSort<>());

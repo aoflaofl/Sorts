@@ -2,15 +2,20 @@ package com.spamalot.sorts;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Abstract class that Sorting classes must extend.
  * 
+ * IntroSort.
+ * 
  * @author gej
  * 
- * @param <T>
- *          Type being sorted.
+ * @param <T> Type being sorted.
  */
 abstract class Sorter<T extends Comparable<T>> {
+  private static final Logger logger = LoggerFactory.getLogger(Sorter.class);
 
   /**
    * Object to keep track of sort metrics.
@@ -18,12 +23,9 @@ abstract class Sorter<T extends Comparable<T>> {
   private final OperationCounter opCounter = new OperationCounter();
 
   /**
-   * @param name
-   *          Name of this sort algorithm.
+   * The order to sort in.
    */
-  Sorter(final String name) {
-    this.sortName = name;
-  }
+  private SortOrder order = SortOrder.ASCENDING;
 
   /**
    * The name of the sort.
@@ -31,9 +33,26 @@ abstract class Sorter<T extends Comparable<T>> {
   private final String sortName;
 
   /**
-   * The order to sort in.
+   * @param name Name of this sort algorithm.
    */
-  private SortOrder order = SortOrder.ASCENDING;
+  Sorter(final String name) {
+    this.sortName = name;
+  }
+
+  /**
+   * Compare and exchange two elements. The compare takes into account the sort
+   * order.
+   * 
+   * @param ary The list.
+   * @param ii  index of first element.
+   * @param jj  index of second element.
+   */
+  protected final void compareExchange(final List<T> ary, final int ii, final int jj) {
+
+    if (sortOrderCompare(ary, ii, jj) > 0) {
+      swap(ary, ii, jj);
+    }
+  }
 
   /**
    * @return The name of this sort.
@@ -54,12 +73,9 @@ abstract class Sorter<T extends Comparable<T>> {
   /**
    * Move the element at index j to index i, replacing the value at index i.
    * 
-   * @param list
-   *          The list.
-   * @param i
-   *          target index.
-   * @param j
-   *          source index.
+   * @param list The list.
+   * @param i    target index.
+   * @param j    source index.
    */
   protected final void move(final List<T> list, final int i, final int j) {
     this.opCounter.count(SortOperation.MOVE);
@@ -71,28 +87,23 @@ abstract class Sorter<T extends Comparable<T>> {
    * Report the statistics of this sort.
    */
   protected final void report() {
-    System.out.println();
-    System.out.println(getName());
-    System.out.println("----");
+    logger.debug("{}", getName());
     this.opCounter.report();
   }
 
   /**
    * Set the order to sort the List in.
    * 
-   * @param ord
-   *          the order to do the sort in.
+   * @param ord the order to do the sort in.
    */
   public final void setOrder(final SortOrder ord) {
     this.order = ord;
   }
 
   /**
-   * Sort the List handed in. Sort should happen in place so nothing is
-   * returned.
+   * Sort the List handed in. Sort should happen in place so nothing is returned.
    * 
-   * @param list
-   *          The list to be sorted.
+   * @param list The list to be sorted.
    */
   final void sort(final List<T> list) {
     sort(list, 0, list.size() - 1);
@@ -102,25 +113,19 @@ abstract class Sorter<T extends Comparable<T>> {
    * Sort the elements in the List handed in between start and end. Sort should
    * happen in place so nothing is returned.
    * 
-   * @param list
-   *          The list to be sorted.
-   * @param start
-   *          The index of the element to start sorting at. The first element in
-   *          the list is 0.
-   * @param end
-   *          The index of the element to stop sorting at.
+   * @param list  The list to be sorted.
+   * @param start The index of the element to start sorting at. The first element
+   *              in the list is 0.
+   * @param end   The index of the element to stop sorting at.
    */
   public abstract void sort(List<T> list, int start, int end);
 
   /**
    * Compare the two arguments passed in. Takes into account the sort order.
    * 
-   * @param list
-   *          List of elements
-   * @param ii
-   *          Index of first element of compare.
-   * @param jj
-   *          Index of second element of compare.
+   * @param list List of elements
+   * @param ii   Index of first element of compare.
+   * @param jj   Index of second element of compare.
    * @return output of compareTo();
    */
   protected final int sortOrderCompare(final List<T> list, final int ii, final int jj) {
@@ -130,14 +135,11 @@ abstract class Sorter<T extends Comparable<T>> {
   /**
    * Compare the two arguments passed in.
    * 
-   * <p>
-   * Counts the number of compares done which can be retrieved from a function.
+   * <p>Counts the number of compares done which can be retrieved from a function.
    * 
    * 
-   * @param xx
-   *          First element to compare.
-   * @param yy
-   *          Second element to compare.
+   * @param xx First element to compare.
+   * @param yy Second element to compare.
    * @return output of compareTo();
    */
   protected final int sortOrderCompare(final T xx, final T yy) {
@@ -156,12 +158,9 @@ abstract class Sorter<T extends Comparable<T>> {
   /**
    * Swap two elements in the list.
    * 
-   * @param ary
-   *          The list.
-   * @param ii
-   *          first element.
-   * @param jj
-   *          second element.
+   * @param ary The list.
+   * @param ii  first element.
+   * @param jj  second element.
    */
   protected final void swap(final List<T> ary, final int ii, final int jj) {
 
@@ -169,24 +168,6 @@ abstract class Sorter<T extends Comparable<T>> {
     T tmp = ary.get(ii);
     ary.set(ii, ary.get(jj));
     ary.set(jj, tmp);
-  }
-
-  /**
-   * Compare and exchange two elements. The compare takes into account the sort
-   * order.
-   * 
-   * @param ary
-   *          The list.
-   * @param ii
-   *          index of first element.
-   * @param jj
-   *          index of second element.
-   */
-  protected final void compareExchange(final List<T> ary, final int ii, final int jj) {
-
-    if (sortOrderCompare(ary, ii, jj) > 0) {
-      swap(ary, ii, jj);
-    }
   }
 
 }
