@@ -1,5 +1,8 @@
 package com.spamalot.sorts;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * A class to count operations.
  * 
@@ -7,6 +10,7 @@ package com.spamalot.sorts;
  * 
  */
 class OperationCounter {
+  private static final Logger logger = LoggerFactory.getLogger(OperationCounter.class);
 
   /**
    * Keep track of the counts.
@@ -16,8 +20,7 @@ class OperationCounter {
   /**
    * Count an operation.
    * 
-   * @param op
-   *          The operation to count.
+   * @param op The operation to count.
    */
   public void count(final SortOperation op) {
     this.counts[op.ordinal()]++;
@@ -27,8 +30,7 @@ class OperationCounter {
   /**
    * Get the count for an operation.
    * 
-   * @param op
-   *          The operation.
+   * @param op The operation.
    * @return The count.
    */
   private int getCount(final SortOperation op) {
@@ -38,11 +40,10 @@ class OperationCounter {
   /**
    * Print a report.
    */
+  @SuppressWarnings("boxing")
   public void report() {
     for (SortOperation op : SortOperation.values()) {
-      System.out.print(op.toString());
-      System.out.print(": ");
-      System.out.println(getCount(op));
+      logger.info("{}: {}", op, getCount(op));
     }
   }
 }

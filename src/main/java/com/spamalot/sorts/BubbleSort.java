@@ -5,19 +5,15 @@ import java.util.List;
 /**
  * Implementation of a Bubble Sort.
  * 
- * <p>
- * Algorithm adapted from Algorithm B in Knuth, The Art of Computer Programming
- * - Volume 3 -Sorting and Searching - Second Edition - page 107
+ * <p>Algorithm adapted from Algorithm B in Knuth, The Art of Computer
+ * Programming - Volume 3 -Sorting and Searching - Second Edition - page 107
  * 
- * <p>
- * Modified to allow 0 as starting index and allow sorting an index range.
+ * <p>Modified to allow 0 as starting index and allow sorting an index range.
  * 
- * <p>
- * Analysis: Blah... blah...
+ * <p>Analysis: Blah... blah...
  * 
  * @author gej
- * @param <T>
- *          A type that implements the Comparable interface.
+ * @param <T> A type that implements the Comparable interface.
  */
 
 final class BubbleSort<T extends Comparable<T>> extends Sorter<T> {

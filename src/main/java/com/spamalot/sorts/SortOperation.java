@@ -34,8 +34,7 @@ enum SortOperation {
 
   @Override
   public String toString() {
-    String out = String.format(format, this.operationDescription);
-    return out;
+    return String.format(format, this.operationDescription);
   }
 
   static {
@@ -49,8 +48,7 @@ enum SortOperation {
   }
 
   /**
-   * @param description
-   *          How this operation will be listed in the report.
+   * @param description How this operation will be listed in the report.
    */
   SortOperation(final String description) {
     this.operationDescription = description;
