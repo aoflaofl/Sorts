@@ -1,5 +1,8 @@
 package com.spamalot.sorts;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 //import java.util.Random;
@@ -12,6 +15,9 @@ import java.util.concurrent.ThreadLocalRandom;
  *
  */
 final class SortUtil {
+  /** Logger for this class */
+  private static final Logger logger = LoggerFactory.getLogger(SortUtil.class);
+
   /**
    * Nothing to declare.
    */
@@ -29,7 +35,7 @@ final class SortUtil {
    */
   static <T extends Comparable<T>> boolean isOrdered(final List<T> list) {
 
-    if (list.size() == 0 || list.size() == 1) {
+    if (list.size() <= 1) {
       return true;
     }
 
@@ -66,7 +72,7 @@ final class SortUtil {
       // System.out.println(vv);
     }
 
-    System.out.println("----");
+    logger.info("----");
 
     return list;
   }

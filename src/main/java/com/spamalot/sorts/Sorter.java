@@ -1,5 +1,7 @@
 package com.spamalot.sorts;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.List;
 
 /**
@@ -11,6 +13,8 @@ import java.util.List;
  *          Type being sorted.
  */
 abstract class Sorter<T extends Comparable<T>> {
+  /** Logger for this class */
+  private static final Logger logger = LoggerFactory.getLogger(Sorter.class);
 
   /**
    * Object to keep track of sort metrics.
@@ -76,9 +80,9 @@ abstract class Sorter<T extends Comparable<T>> {
    * Report the statistics of this sort.
    */
   protected final void report() {
-    System.out.println();
-    System.out.println(getName());
-    System.out.println("----");
+    logger.info("");
+    logger.info("{}", getName());
+    logger.info("{}", "----");
     this.opCounter.report();
   }
 
@@ -93,7 +97,8 @@ abstract class Sorter<T extends Comparable<T>> {
   }
 
   /**
-   * Sort the List handed in. Sort should happen in place so nothing is returned.
+   * Sort the List handed in. Sort should happen in place so nothing is
+   * returned.
    * 
    * @param list
    *          The list to be sorted.
@@ -103,14 +108,14 @@ abstract class Sorter<T extends Comparable<T>> {
   }
 
   /**
-   * Sort the elements in the List handed in between start and end. Sort should
-   * happen in place so nothing is returned.
+   * Sort the elements in the List handed in between start and end. Sort
+   * should happen in place so nothing is returned.
    * 
    * @param list
    *          The list to be sorted.
    * @param start
-   *          The index of the element to start sorting at. The first element in
-   *          the list is 0.
+   *          The index of the element to start sorting at. The first element
+   *          in the list is 0.
    * @param end
    *          The index of the element to stop sorting at.
    */
@@ -134,7 +139,8 @@ abstract class Sorter<T extends Comparable<T>> {
   /**
    * Compare the two arguments passed in.
    * 
-   * <p>Counts the number of compares done which can be retrieved from a function.
+   * <p>Counts the number of compares done which can be retrieved from a
+   * function.
    * 
    * 
    * @param xx
@@ -175,8 +181,8 @@ abstract class Sorter<T extends Comparable<T>> {
   }
 
   /**
-   * Compare and exchange two elements. The compare takes into account the sort
-   * order.
+   * Compare and exchange two elements. The compare takes into account the
+   * sort order.
    * 
    * @param ary
    *          The list.
