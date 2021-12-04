@@ -28,6 +28,8 @@ public final class SortTest {
   private static final int DEFAULT_MAX_VAL = 100;
 
   /**
+   * Start here.
+   * 
    * @param args
    *          Arguments to the program.
    */

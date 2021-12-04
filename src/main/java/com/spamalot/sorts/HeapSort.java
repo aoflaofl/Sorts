@@ -10,7 +10,8 @@ import java.util.List;
  * <p>Modified to allow 0 as starting index and allow sorting an index range.
  * 
  * @author gej
- * @param <T> A type that implements the Comparable interface.
+ * @param <T>
+ *          A type that implements the Comparable interface.
  */
 
 final class HeapSort<T extends Comparable<T>> extends Sorter<T> {
@@ -30,7 +31,8 @@ final class HeapSort<T extends Comparable<T>> extends Sorter<T> {
   /**
    * Get the parent index of an element.
    * 
-   * @param idx An index.
+   * @param idx
+   *          An index.
    * @return The index of the parent.
    */
   private int parent(final int idx) {
@@ -40,7 +42,8 @@ final class HeapSort<T extends Comparable<T>> extends Sorter<T> {
   /**
    * Get the left child index in a heap.
    * 
-   * @param idx An index.
+   * @param idx
+   *          An index.
    * @return The left child of this index in a heap.
    */
   private int left(final int idx) {
@@ -50,7 +53,8 @@ final class HeapSort<T extends Comparable<T>> extends Sorter<T> {
   /**
    * Get the right child index in a heap.
    * 
-   * @param idx An index.
+   * @param idx
+   *          An index.
    * @return The right child of this index in a heap.
    */
   private int right(final int idx) {
@@ -58,11 +62,14 @@ final class HeapSort<T extends Comparable<T>> extends Sorter<T> {
   }
 
   /**
-   * Recursively Heapify.
+   * Perform max heapify function.
    * 
-   * @param list  The list to be heaped.
-   * @param start The index to start the heaping.
-   * @param end   The index to end the heaping.
+   * @param list
+   *          The list to be heaped.
+   * @param start
+   *          The index to start the heaping.
+   * @param end
+   *          The index to end the heaping.
    */
   private void maxHeapify(final List<T> list, final int start, final int end) {
     int largest;
@@ -87,9 +94,12 @@ final class HeapSort<T extends Comparable<T>> extends Sorter<T> {
   /**
    * Take a list and heapify it.
    * 
-   * @param list  The list to heapify.
-   * @param start The start index
-   * @param end   The end index
+   * @param list
+   *          The list to heapify.
+   * @param start
+   *          The start index
+   * @param end
+   *          The end index
    */
   private void buildMaxHeap(final List<T> list, final int start, final int end) {
     int lastHeap = parent(end);

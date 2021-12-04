@@ -48,7 +48,10 @@ enum SortOperation {
   }
 
   /**
-   * @param description How this operation will be listed in the report.
+   * Construct SortOperation object.
+   * 
+   * @param description
+   *          How this operation will be listed in the report.
    */
   SortOperation(final String description) {
     this.operationDescription = description;

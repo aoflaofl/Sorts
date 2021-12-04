@@ -13,7 +13,8 @@ import java.util.List;
  * <p>Analysis: Blah... blah...
  * 
  * @author gej
- * @param <T> A type that implements the Comparable interface.
+ * @param <T>
+ *          A type that implements the Comparable interface.
  */
 
 final class BubbleSort<T extends Comparable<T>> extends Sorter<T> {

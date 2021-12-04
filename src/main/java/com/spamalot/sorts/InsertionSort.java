@@ -10,7 +10,8 @@ import java.util.List;
  * <p>Modified to allow 0 as starting index and allow sorting an index range.
  * 
  * @author gej
- * @param <T> A type that implements the Comparable interface.
+ * @param <T>
+ *          A type that implements the Comparable interface.
  */
 final class InsertionSort<T extends Comparable<T>> extends Sorter<T> {
 

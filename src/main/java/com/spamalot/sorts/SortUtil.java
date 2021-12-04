@@ -2,7 +2,8 @@ package com.spamalot.sorts;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+//import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Utility functions for Sorting.
@@ -56,11 +57,11 @@ final class SortUtil {
    */
   static List<Integer> makeListOfRndInts(final int count, final int maxval) {
 
-    Random rng = new java.util.Random();
+//    Random rng = new java.util.Random();
     List<Integer> list = new ArrayList<>();
 
     for (int i = 0; i < count; i++) {
-      Integer vv = Integer.valueOf(rng.nextInt(maxval));
+      Integer vv = Integer.valueOf(ThreadLocalRandom.current().nextInt(maxval));
       list.add(vv);
       // System.out.println(vv);
     }
