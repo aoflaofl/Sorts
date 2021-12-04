@@ -2,6 +2,8 @@ package com.spamalot.sorts;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Contains main() method to test Sorting Classes.
@@ -10,6 +12,8 @@ import java.util.List;
  * 
  */
 public final class SortTest {
+  /** Logger for this class */
+  private static final Logger logger = LoggerFactory.getLogger(SortTest.class);
 
   /**
    * Do not instantiate.
@@ -53,7 +57,7 @@ public final class SortTest {
     List<Integer> list = SortUtil.makeListOfRndInts(count, maxval);
 
     if (!SortUtil.isOrdered(list)) {
-      System.out.println("Not Sorted!");
+      logger.info("{}", "Not Sorted!");
     }
 
     for (Sorter<Integer> s : sorts) {
