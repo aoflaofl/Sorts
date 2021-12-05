@@ -16,7 +16,7 @@ class OperationCounter {
   /**
    * Keep track of the counts.
    */
-  private final int[] counts = new int[SortOperation.values().length];
+  private final long[] counts = new long[SortOperation.values().length];
 
   /**
    * Count an operation.
@@ -36,7 +36,7 @@ class OperationCounter {
    *          The operation.
    * @return The count.
    */
-  private int getCount(final SortOperation op) {
+  private long getCount(final SortOperation op) {
     return this.counts[op.ordinal()];
   }
 
