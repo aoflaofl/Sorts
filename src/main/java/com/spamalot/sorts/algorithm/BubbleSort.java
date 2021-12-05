@@ -1,4 +1,6 @@
-package com.spamalot.sorts;
+package com.spamalot.sorts.algorithm;
+
+import com.spamalot.sorts.Sorter;
 
 import java.util.List;
 
@@ -17,12 +19,12 @@ import java.util.List;
  *          A type that implements the Comparable interface.
  */
 
-final class BubbleSort<T extends Comparable<T>> extends Sorter<T> {
+public final class BubbleSort<T extends Comparable<T>> extends Sorter<T> {
 
   /**
    * Constructor for BubbleSort.
    */
-  BubbleSort() {
+  public BubbleSort() {
     super("BubbleSort");
   }
 

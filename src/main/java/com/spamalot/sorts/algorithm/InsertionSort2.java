@@ -1,5 +1,6 @@
-package com.spamalot.sorts;
+package com.spamalot.sorts.algorithm;
 
+import com.spamalot.sorts.Sorter;
 import java.util.List;
 
 /**
@@ -9,17 +10,18 @@ import java.util.List;
  * Edition by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and
  * Clifford Stein
  * 
- * <p>Modified to allow 0 as starting index and allow sorting an index range.
+ * <p>Modified to allow 0 as starting index and allow sorting an index
+ * range.
  * 
  * @author gej
  * @param <T>
  *          A type that implements the Comparable interface.
  */
-final class InsertionSort2<T extends Comparable<T>> extends Sorter<T> {
+public final class InsertionSort2<T extends Comparable<T>> extends Sorter<T> {
   /**
    * Constructor for InsertionSort.
    */
-  InsertionSort2() {
+  public InsertionSort2() {
     super("InsertionSort2");
   }
 

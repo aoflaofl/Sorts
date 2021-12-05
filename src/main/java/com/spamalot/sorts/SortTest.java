@@ -1,5 +1,10 @@
 package com.spamalot.sorts;
 
+import com.spamalot.sorts.algorithm.BubbleSort;
+import com.spamalot.sorts.algorithm.HeapSort;
+import com.spamalot.sorts.algorithm.InsertionSort;
+import com.spamalot.sorts.algorithm.InsertionSort2;
+
 import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;
@@ -40,9 +45,9 @@ public final class SortTest {
   public static void main(final String[] args) {
 
     List<Sorter<Integer>> sorts = new ArrayList<>();
-    // sorts.add(new BubbleSort<>());
+    sorts.add(new BubbleSort<>());
     sorts.add(new InsertionSort<>());
-    // sorts.add(new InsertionSort2<>());
+    sorts.add(new InsertionSort2<>());
     sorts.add(new HeapSort<>());
 
     int count = DEFAULT_COUNT;

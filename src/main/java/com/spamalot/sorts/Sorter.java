@@ -12,7 +12,7 @@ import java.util.List;
  * @param <T>
  *          Type being sorted.
  */
-abstract class Sorter<T extends Comparable<T>> {
+public abstract class Sorter<T extends Comparable<T>> {
   /** Logger for this class */
   private static final Logger logger = LoggerFactory.getLogger(Sorter.class);
 
@@ -27,7 +27,7 @@ abstract class Sorter<T extends Comparable<T>> {
    * @param name
    *          Name of this sort algorithm.
    */
-  Sorter(final String name) {
+  protected Sorter(final String name) {
     this.sortName = name;
   }
 

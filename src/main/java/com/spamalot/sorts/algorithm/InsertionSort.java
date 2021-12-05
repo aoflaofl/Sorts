@@ -1,4 +1,6 @@
-package com.spamalot.sorts;
+package com.spamalot.sorts.algorithm;
+
+import com.spamalot.sorts.Sorter;
 
 import java.util.List;
 
@@ -14,12 +16,12 @@ import java.util.List;
  * @param <T>
  *          A type that implements the Comparable interface.
  */
-final class InsertionSort<T extends Comparable<T>> extends Sorter<T> {
+public final class InsertionSort<T extends Comparable<T>> extends Sorter<T> {
 
   /**
    * Constructor for InsertionSort.
    */
-  InsertionSort() {
+  public InsertionSort() {
     super("InsertionSort");
   }
 
