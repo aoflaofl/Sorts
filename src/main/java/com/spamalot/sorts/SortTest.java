@@ -40,9 +40,9 @@ public final class SortTest {
   public static void main(final String[] args) {
 
     List<Sorter<Integer>> sorts = new ArrayList<>();
-    sorts.add(new BubbleSort<>());
+    // sorts.add(new BubbleSort<>());
     sorts.add(new InsertionSort<>());
-    sorts.add(new InsertionSort2<>());
+    // sorts.add(new InsertionSort2<>());
     sorts.add(new HeapSort<>());
 
     int count = DEFAULT_COUNT;
@@ -57,7 +57,7 @@ public final class SortTest {
     List<Integer> list = SortUtil.makeListOfRndInts(count, maxval);
 
     if (!SortUtil.isOrdered(list)) {
-      logger.info("{}", "Not Sorted!");
+      logger.info("Not Sorted!");
     }
 
     for (Sorter<Integer> s : sorts) {
@@ -77,7 +77,9 @@ public final class SortTest {
     List<Integer> listCopy = new ArrayList<>();
     listCopy.addAll(list);
 
+    logger.info("Starting {}", sortAlgorithm.getName());
     sortAlgorithm.sort(listCopy);
+    logger.info("Ending {}", sortAlgorithm.getName());
     sortAlgorithm.report();
   }
 }

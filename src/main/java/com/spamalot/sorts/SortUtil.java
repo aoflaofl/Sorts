@@ -1,12 +1,10 @@
 package com.spamalot.sorts;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.ArrayList;
 import java.util.List;
-//import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Utility functions for Sorting.
@@ -28,13 +26,12 @@ final class SortUtil {
    * Check if a list is ordered.
    * 
    * @param list
-   *          A list to check.
+   *          The list to check.
    * @param <T>
    *          A type that implements the Comparable interface.
-   * @return True if the list is ordered.
+   * @return true if the list is ordered, else false.
    */
   static <T extends Comparable<T>> boolean isOrdered(final List<T> list) {
-
     if (list.size() <= 1) {
       return true;
     }
@@ -62,17 +59,14 @@ final class SortUtil {
    * @return List of Integers in random order.
    */
   static List<Integer> makeListOfRndInts(final int count, final int maxval) {
+    logger.debug("Making list of {} integers in range (0 to {}]", count, maxval);
 
-//    Random rng = new java.util.Random();
     List<Integer> list = new ArrayList<>();
 
     for (int i = 0; i < count; i++) {
       Integer vv = Integer.valueOf(ThreadLocalRandom.current().nextInt(maxval));
       list.add(vv);
-      // System.out.println(vv);
     }
-
-    logger.info("----");
 
     return list;
   }

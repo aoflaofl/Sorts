@@ -46,7 +46,7 @@ abstract class Sorter<T extends Comparable<T>> {
    * 
    * @return The name of this sort.
    */
-  public final String getName() {
+  final String getName() {
     return this.sortName;
   }
 

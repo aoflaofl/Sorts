@@ -7,7 +7,8 @@ import java.util.List;
  * 
  * <p>Algorithm taken from ...
  * 
- * <p>Modified to allow 0 as starting index and allow sorting an index range.
+ * <p>Modified to allow 0 as starting index and allow sorting an index
+ * range.
  * 
  * @author gej
  * @param <T>
