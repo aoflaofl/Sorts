@@ -3,8 +3,7 @@ package com.spamalot.sorts;
 import com.spamalot.sorts.algorithm.BubbleSort;
 import com.spamalot.sorts.algorithm.HeapSort;
 import com.spamalot.sorts.algorithm.InsertionSort;
-import com.spamalot.sorts.algorithm.InsertionSort2;
-
+import com.spamalot.sorts.algorithm.QuickSort;
 import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;
@@ -29,12 +28,12 @@ public final class SortTest {
   /**
    * The number of elements if nothing is specified on the command line.
    */
-  private static final int DEFAULT_COUNT = 10;
+  private static final int DEFAULT_COUNT = 100000;
   /**
    * The maximum random number to generate if nothing is specified on the
    * command line.
    */
-  private static final int DEFAULT_MAX_VAL = 100;
+  private static final int DEFAULT_MAX_VAL = 10000000;
 
   /**
    * Start here.
@@ -47,8 +46,8 @@ public final class SortTest {
     List<AbstractSorter<Integer>> sorts = new ArrayList<>();
     sorts.add(new BubbleSort<>());
     sorts.add(new InsertionSort<>());
-    sorts.add(new InsertionSort2<>());
     sorts.add(new HeapSort<>());
+    sorts.add(new QuickSort<>());
 
     int count = DEFAULT_COUNT;
     if (args.length > 0 && args[0] != null) {
@@ -82,6 +81,7 @@ public final class SortTest {
     List<Integer> listCopy = new ArrayList<>();
     listCopy.addAll(list);
 
+    LOGGER.info("");
     LOGGER.info("Starting {}", sortAlgorithm.getName());
     sortAlgorithm.sort(listCopy);
     LOGGER.info("Ending {}", sortAlgorithm.getName());
