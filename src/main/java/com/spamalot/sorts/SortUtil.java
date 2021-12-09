@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
  */
 final class SortUtil {
   /** Logger for this class */
-  private static final Logger logger = LoggerFactory.getLogger(SortUtil.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(SortUtil.class);
 
   /**
    * Nothing to declare.
@@ -59,7 +59,7 @@ final class SortUtil {
    * @return List of Integers in random order.
    */
   static List<Integer> makeListOfRndInts(final int count, final int maxval) {
-    logger.debug("Making list of {} integers in range (0 to {}]", count, maxval);
+    LOGGER.debug("Making list of {} integers in range (0 to {}]", count, maxval);
 
     List<Integer> list = new ArrayList<>();
 

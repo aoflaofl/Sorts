@@ -1,6 +1,6 @@
 package com.spamalot.sorts.algorithm;
 
-import com.spamalot.sorts.Sorter;
+import com.spamalot.sorts.AbstractSorter;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ import java.util.List;
  *          A type that implements the Comparable interface.
  */
 
-public final class HeapSort<T extends Comparable<T>> extends Sorter<T> {
+public final class HeapSort<T extends Comparable<T>> extends AbstractSorter<T> {
 
   /**
    * Constructor for HeapSort.

@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
  */
 public final class SortTest {
   /** Logger for this class */
-  private static final Logger logger = LoggerFactory.getLogger(SortTest.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(SortTest.class);
 
   /**
    * Do not instantiate.
@@ -44,7 +44,7 @@ public final class SortTest {
    */
   public static void main(final String[] args) {
 
-    List<Sorter<Integer>> sorts = new ArrayList<>();
+    List<AbstractSorter<Integer>> sorts = new ArrayList<>();
     sorts.add(new BubbleSort<>());
     sorts.add(new InsertionSort<>());
     sorts.add(new InsertionSort2<>());
@@ -62,10 +62,10 @@ public final class SortTest {
     List<Integer> list = SortUtil.makeListOfRndInts(count, maxval);
 
     if (!SortUtil.isOrdered(list)) {
-      logger.info("Not Sorted!");
+      LOGGER.info("Not Sorted!");
     }
 
-    for (Sorter<Integer> s : sorts) {
+    for (AbstractSorter<Integer> s : sorts) {
       doASort(s, list);
     }
   }
@@ -78,13 +78,13 @@ public final class SortTest {
    * @param list
    *          List to be sorted
    */
-  static void doASort(Sorter<Integer> sortAlgorithm, List<Integer> list) {
+  static void doASort(AbstractSorter<Integer> sortAlgorithm, List<Integer> list) {
     List<Integer> listCopy = new ArrayList<>();
     listCopy.addAll(list);
 
-    logger.info("Starting {}", sortAlgorithm.getName());
+    LOGGER.info("Starting {}", sortAlgorithm.getName());
     sortAlgorithm.sort(listCopy);
-    logger.info("Ending {}", sortAlgorithm.getName());
+    LOGGER.info("Ending {}", sortAlgorithm.getName());
     sortAlgorithm.report();
   }
 }

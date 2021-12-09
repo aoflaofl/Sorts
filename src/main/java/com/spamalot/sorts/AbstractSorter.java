@@ -12,9 +12,9 @@ import java.util.List;
  * @param <T>
  *          Type being sorted.
  */
-public abstract class Sorter<T extends Comparable<T>> {
+public abstract class AbstractSorter<T extends Comparable<T>> {
   /** Logger for this class */
-  private static final Logger logger = LoggerFactory.getLogger(Sorter.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(AbstractSorter.class);
 
   /**
    * Object to keep track of sort metrics.
@@ -27,7 +27,7 @@ public abstract class Sorter<T extends Comparable<T>> {
    * @param name
    *          Name of this sort algorithm.
    */
-  protected Sorter(final String name) {
+  protected AbstractSorter(final String name) {
     this.sortName = name;
   }
 
@@ -80,9 +80,9 @@ public abstract class Sorter<T extends Comparable<T>> {
    * Report the statistics of this sort.
    */
   protected final void report() {
-    logger.info("");
-    logger.info("{}", getName());
-    logger.info("{}", "----");
+    LOGGER.info("");
+    LOGGER.info("{}", getName());
+    LOGGER.info("{}", "----");
     this.opCounter.report();
   }
 

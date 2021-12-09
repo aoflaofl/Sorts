@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
  */
 class OperationCounter {
   /** Logger for this class */
-  private static final Logger logger = LoggerFactory.getLogger(OperationCounter.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(OperationCounter.class);
 
   /**
    * Keep track of the counts.
@@ -43,10 +43,9 @@ class OperationCounter {
   /**
    * Print a report.
    */
-  @SuppressWarnings("boxing")
   public void report() {
     for (SortOperation op : SortOperation.values()) {
-      logger.info("{}: {}", op, getCount(op));
+      LOGGER.info("{}: {}", op, getCount(op));
     }
   }
 }
